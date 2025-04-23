@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Card from "@/components/Card";
 import { ReviewBar } from "@/components/singleview/Reviews";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <p>Eksempel på brødtekst</p>
       <Card></Card>
       <ReviewBar></ReviewBar>
+      <Footer />
     </div>
   );
 }
