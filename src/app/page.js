@@ -2,6 +2,7 @@ import Image from "next/image";
 import Card from "@/components/Card";
 import { ReviewBar } from "@/components/singleview/Reviews";
 import Footer from "@/components/Footer";
+import Button from "@/components/Button";
 
 export default function Home() {
   return (
@@ -10,6 +11,9 @@ export default function Home() {
       <p>Eksempel på brødtekst</p>
       <Card></Card>
       <ReviewBar></ReviewBar>
+      <div className="flex justify-center">
+        <Button variant="primary">See products</Button>
+      </div>
       <Footer />
     </div>
   );
