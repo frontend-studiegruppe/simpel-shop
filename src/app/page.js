@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import Link from "next/link";
 import SizeDropdown from "@/components/singleview/SizeDropdown";
+import Quantity from "@/components/QuantityDropdown";
 
 export default function Home() {
   return (
@@ -17,6 +18,8 @@ export default function Home() {
       </div>
       <SizeDropdown size="s" />
       <SizeDropdown size="m" />
+      <Quantity size="s" />
+      <Quantity size="m" />
 
       <p>Eksempel på brødtekst</p>
       <Card></Card>
