@@ -3,6 +3,7 @@ import Card from "@/components/Card";
 import ReviewCard, { ReviewBar } from "@/components/singleview/Reviews";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,7 +12,9 @@ export default function Home() {
         Studio Rouge
       </h1>
       <div className="flex justify-center">
-        <Button variant="primary">See products</Button>
+        <Link href="/products">
+          <Button variant="primary">See products</Button>
+        </Link>
       </div>
 
       <p>Eksempel på brødtekst</p>
