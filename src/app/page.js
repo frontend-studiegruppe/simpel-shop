@@ -7,7 +7,13 @@ import Button from "@/components/Button";
 export default function Home() {
   return (
     <div>
-      <h1 className="text-secondary-cherry-dark text-3xl">Simpel Shop</h1>
+      <h1 className="flex justify-center text-secondary-cherry-dark text-8xl font-bold ">
+        Studio Rouge
+      </h1>
+      <div className="flex justify-center">
+        <Button variant="primary">See products</Button>
+      </div>
+
       <p>Eksempel på brødtekst</p>
       <Card></Card>
       {/* Nedenstående review div kan slettes fra page. Er her kun for at vise :) */}
@@ -29,10 +35,6 @@ export default function Home() {
             <ReviewBar></ReviewBar>
           </ReviewCard>
         </div>
-      </div>
-
-      <div className="flex justify-center">
-        <Button variant="primary">See products</Button>
       </div>
       <Footer />
     </div>
