@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "./Button";
 
 const Card = ({ product }) => {
   // Tjek, at product har nødvendige felter
@@ -9,9 +10,9 @@ const Card = ({ product }) => {
   return (
     <div className="group max-w-[250px]">
       <div className="relative">
-        <Image src={product.thumbnail || "/placeholder.png"} alt={product.title} width={250} height={250} className="group-hover:brightness-50 transition duration-300 ease-in-out object-cover " />
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-          <button>View</button>
+        <Image src={product.thumbnail || "/placeholder.png"} alt={product.title} width={250} height={250} className="group-hover:brightness-50 transition duration-300 ease-in-out object-cover bg-white" />
+        <div className="w-full flex justify-center absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+          <Button variant="card_hover_btn">Add to Basket</Button>
         </div>
       </div>
       <div className="flex justify-between font-light py-2">
