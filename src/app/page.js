@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import Link from "next/link";
 import SizeDropdown from "@/components/singleview/SizeDropdown";
 import Quantity from "@/components/QuantityDropdown";
+import Wishlistbutton from "@/components/WishlistButton";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <SizeDropdown size="m" />
       <Quantity size="s" />
       <Quantity size="m" />
+      <Wishlistbutton />
 
       <p>Eksempel på brødtekst</p>
       <Card></Card>
