@@ -1,6 +1,4 @@
 //Katinka
-//Skal secondary button have samme width eller w-fit?
-//OBS sørge for at active secondary button får samme styling som hover
 
 const Button = ({ children, variant, onClick }) => {
   const variants = {
