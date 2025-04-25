@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "./Button";
 
 const Card = ({ product }) => {
@@ -8,6 +9,7 @@ const Card = ({ product }) => {
   }
 
   return (
+    <Link href={`products/${product.id}`}>
     <div className="group max-w-[250px]">
       <div className="relative">
         <Image src={product.thumbnail || "/placeholder.png"} alt={product.title} width={250} height={250} className="group-hover:brightness-50 transition duration-300 ease-in-out object-cover bg-white" />
@@ -20,6 +22,7 @@ const Card = ({ product }) => {
         <h3>{product.price}kr</h3>
       </div>
     </div>
+    </Link>
   );
 };
 
