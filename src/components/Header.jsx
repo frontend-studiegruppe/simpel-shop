@@ -1,13 +1,23 @@
+"use client";
+
 //Katinka
 //OBS lave den forskellig i forhold til forskellige skærm størrelser
 import { PiHandbagLight } from "react-icons/pi";
 import { IoIosSearch } from "react-icons/io";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   return (
-    <header>
+    <header
+    className={`w-full ${
+      isHome
+        ? "absolute top-0 left-0 text-white bg-transparent"
+        : "relative"
+    }`}>
       <nav className="flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-white">
         <Link href="/" className="flex items-center gap-6">
           <Image src="/img/logo.svg" alt="logo" width={70} height={70}></Image>

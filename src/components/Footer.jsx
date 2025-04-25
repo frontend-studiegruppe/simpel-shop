@@ -2,7 +2,7 @@ import { BiLogoLinkedin, BiLogoInstagram, BiLogoFacebook } from "react-icons/bi"
 
 const Footer = () => {
   return (
-    <div className="bg-secondary-cherry-dark text-white px-6 py-20">
+    <footer className="bg-secondary-cherry-dark text-white px-6 py-20">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-start text-center sm:text-left gap-y-10 sm:gap-y-0 sm:gap-x-10">
         <div className="space-y-4 min-w-[250px]">
           <h2 className="text-xl font-semibold">Studio Rouge</h2>
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

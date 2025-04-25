@@ -6,18 +6,19 @@ import VideoBackground from "@/components/VideoBackground";
 export default function Home() {
   return (
     <div>
-      <div>
-        <VideoBackground />
+      <VideoBackground />
+      <div className="h-screen flex flex-col justify-center items-center gap-10">
         <div className="py-30">
-          <h1 className="flex justify-center text-secondary-cherry-dark text-8xl font-bold ">Studio Rouge</h1>
-          <div className="flex justify-center">
+          <h1 className=" text-secondary-cherry-dark text-8xl font-bold ">
+            Studio Rouge
+          </h1>
+          <div className="flex justify-center mt-10">
             <Link href="/products">
               <Button variant="primary">See products</Button>
             </Link>
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
