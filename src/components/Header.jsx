@@ -15,8 +15,8 @@ const Header = () => {
     <header
     className={`w-full ${
       isHome
-        ? "absolute top-0 left-0 text-white bg-transparent"
-        : "relative"
+        ? "absolute top-0 left-0 bg-transparent"
+        : "relative bg-white"
     }`}>
       <nav className="flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-white">
         <Link href="/" className="flex items-center gap-6">
