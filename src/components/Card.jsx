@@ -26,7 +26,7 @@ const Card = ({ product }) => {
         <h3>{product.title}</h3>
         {product.discountPercentage > 10 ? (
         <div>
-            <h3 className="text-red-500">
+            <h3 className="text-red-500 font-bold">
                 {Math.round(product.price * (1 - product.discountPercentage / 100))} kr
             </h3>
             <h3 className=" text-xs">Before: <span className="line-through">{product.price} kr</span></h3>
