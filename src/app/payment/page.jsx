@@ -17,7 +17,7 @@ const PaymentPage = () => {
           <CartItem></CartItem>
       </div>
 
-      <div className="bg-primary-grey-light-2 py-6 px-16">
+      <div className="bg-primary-grey-light-2 py-6 px-16 h-fit">
         <h2 className="text-secondary-cherry-dark font-bold mb-6">Payment</h2>
         <div className="bg-primary-grey-light-3 p-8 flex flex-col gap-6">
           <div className="flex flex-col gap-0.5">
