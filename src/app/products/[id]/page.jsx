@@ -1,5 +1,7 @@
 import Button from "@/components/Button";
 import ReviewCard, { ReviewBar } from "@/components/singleview/Reviews";
+import ColorSelector from "@/components/singleview/ColorSelector";
+import Gallery from "@/components/singleview/Gallery";
 
 export default async function SingleProduct ({params}) {
   const { id } = params;

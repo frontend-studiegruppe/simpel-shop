@@ -8,18 +8,18 @@ import { PiCreditCardLight } from "react-icons/pi";
 
 const PaymentPage = () => {
   return (
-    <div className="grid lg:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
-      <div className="bg-primary-grey-light-2 grid gap-6 px-24 py-6">
-        <h2 className="text-secondary-cherry-dark font-bold">Cart</h2>
+    <div className="grid lg:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4 mb-16">
+      <div className="bg-primary-grey-light-2 grid gap-6 px-24 py-16">
+        <h2 className="text-secondary-cherry-dark font-bold text-2xl">Cart</h2>
           <CartItem></CartItem>
           <CartItem></CartItem>
           <CartItem></CartItem>
           <CartItem></CartItem>
       </div>
 
-      <div className="bg-primary-grey-light-2 py-6 px-16 h-fit">
-        <h2 className="text-secondary-cherry-dark font-bold mb-6">Payment</h2>
-        <div className="bg-primary-grey-light-3 p-8 flex flex-col gap-6">
+      <div className="bg-primary-grey-light-2 py-16 px-14 h-fit">
+        <h2 className="text-secondary-cherry-dark font-bold mb-6 text-2xl">Payment</h2>
+        <div className="bg-primary-grey-light-3 p-6 flex flex-col gap-6">
           <div className="flex flex-col gap-0.5">
             <div className="flex justify-between">
               <p>Subtotal</p>
