@@ -1,9 +1,14 @@
 import Button from "@/components/Button";
 import ReviewCard, { ReviewBar } from "@/components/singleview/Reviews";
 
-export default SingleProduct = () => {
+export default async function SingleProduct ({params}) {
+  const { id } = params;
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  const product = await res.json();
+
   return (
     <div>
+      <h1>{product.title}</h1>
       <div>
         <Button variant="primary">Add to basket</Button>
       </div>

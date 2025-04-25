@@ -2,10 +2,10 @@
 
 import { GrStar, GrStarOutline } from "react-icons/gr";
 
-const ReviewCard = ({ children }) => {
+const ReviewCard = () => {
   return (
     <div className="bg-[var(--color-primary-grey-light)] text-sm px-6 py-5 max-w-[40ch]">
-      {children}
+      <ReviewBar/>
       <h4 className="text-lg font-medium mt-3 mb-2">Costumer Name</h4>
       <p>
         "Customer review. Lorem ipsum dolor sit amet consectetur adipisicing
