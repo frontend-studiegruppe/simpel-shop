@@ -10,7 +10,7 @@ const Gallery = ({images}) => {
             <Image src={activeImg} alt="Aktivt billede" width={400} height={400}/>
         </div>
         <div className="flex gap-4 my-4">
-        {images.slice(0, 3).map((img, index) => (
+        {images.map((img, index) => (
           <figure
             key={index}
             onClick={() => setActiveImg(img)}
