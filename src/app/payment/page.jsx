@@ -7,6 +7,7 @@ import Payment from "@/components/payment/Payment";
 import Delivery from "@/components/payment/Delivery";
 import { PiCreditCardLight } from "react-icons/pi";
 import useCartStore from "../store/cartStore";
+import PaymentMethods from "@/components/PaymentMethods";
 
 const PaymentPage = () => {
   const cart = useCartStore(state => state.cart)
