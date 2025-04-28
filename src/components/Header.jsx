@@ -13,12 +13,11 @@ const Header = () => {
   const isHome = pathname === "/";
   return (
     <header
-    className={`w-full ${
-      isHome
-        ? "absolute top-0 left-0 bg-transparent"
-        : "relative bg-white"
-    }`}>
-      <nav className="flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-white">
+      className={`w-full ${
+        isHome ? "absolute top-0 left-0 bg-transparent" : "relative bg-white"
+      }`}
+    >
+      <nav className="flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-[rgba(255,255,255,0.5)] transition">
         <Link href="/" className="flex items-center gap-6">
           <Image src="/img/logo.svg" alt="logo" width={70} height={70}></Image>
           <h3 className="hidden sm:block sm:text-3xl font-medium ">
