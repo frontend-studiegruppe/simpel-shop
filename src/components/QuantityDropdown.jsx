@@ -20,12 +20,20 @@ const Quantity = ({ size = "m" }) => {
   };
 
   return (
-    <div className={` bg-gray-300 flex items-center justify-between ${sizeStyles[size]} `}>
-      <button onClick={handleDecrease} className=" text-primary-black text-lg">
+    <div
+      className={` bg-gray-300 flex items-center justify-between ${sizeStyles[size]} `}
+    >
+      <button
+        onClick={handleDecrease}
+        className=" text-primary-black text-lg cursor-pointer"
+      >
         −
       </button>
       <span className="mx-4">{quantity}</span>
-      <button onClick={handleIncrease} className=" text-primary-black text-lg">
+      <button
+        onClick={handleIncrease}
+        className=" text-primary-black text-lg cursor-pointer"
+      >
         +
       </button>
     </div>
