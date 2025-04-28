@@ -20,22 +20,25 @@ const Quantity = ({ size = "m" }) => {
   };
 
   return (
-    <div
-      className={` bg-gray-300 flex items-center justify-between ${sizeStyles[size]} `}
-    >
-      <button
-        onClick={handleDecrease}
-        className=" text-primary-black text-lg cursor-pointer"
+    <div>
+      <label className="text-sm mb-1 block">Choose quantity:</label>
+      <div
+        className={` bg-gray-300 flex items-center justify-between ${sizeStyles[size]} `}
       >
-        −
-      </button>
-      <span className="mx-4">{quantity}</span>
-      <button
-        onClick={handleIncrease}
-        className=" text-primary-black text-lg cursor-pointer"
-      >
-        +
-      </button>
+        <button
+          onClick={handleDecrease}
+          className=" text-primary-black text-lg cursor-pointer"
+        >
+          −
+        </button>
+        <span className="mx-4">{quantity}</span>
+        <button
+          onClick={handleIncrease}
+          className=" text-primary-black text-lg cursor-pointer"
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }; //man kan måske tilføje at den kun kan gå op til max hvad der er i stock if we wanna
