@@ -1,3 +1,4 @@
+"use client"
 //Katinka: OBS mangler icon på button
 
 import Button from "@/components/Button";
@@ -5,17 +6,21 @@ import CartItem from "@/components/payment/CartItem";
 import Payment from "@/components/payment/Payment";
 import Delivery from "@/components/payment/Delivery";
 import { PiCreditCardLight } from "react-icons/pi";
+import useCartStore from "../store/cartStore";
 import PaymentMethods from "@/components/PaymentMethods";
 
 const PaymentPage = () => {
+  const cart = useCartStore(state => state.cart)
   return (
     <div className="grid lg:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4 mb-16">
       <div className="bg-primary-grey-light-2 grid gap-6 px-24 py-16">
         <h2 className="text-secondary-cherry-dark font-bold text-2xl">Cart</h2>
-        <CartItem></CartItem>
-        <CartItem></CartItem>
-        <CartItem></CartItem>
-        <CartItem></CartItem>
+        {cart.length > 0 && (
+          cart.map((product, i) => (
+            <CartItem key={product.id} product={product}></CartItem>
+          ))
+
+        ) }
       </div>
 
       <div className="bg-primary-grey-light-2 py-16 px-14 h-fit">
