@@ -13,14 +13,16 @@ const PaymentPage = () => {
   const cart = useCartStore(state => state.cart)
   return (
     <div className="grid lg:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4 mb-16">
-      <div className="bg-primary-grey-light-2 grid gap-6 px-24 py-16">
+      <div className="bg-primary-grey-light-2 grid gap-6 px-24 py-16 h-fit">
         <h2 className="text-secondary-cherry-dark font-bold text-2xl">Cart</h2>
+        <div className="flex flex-col gap-4 justify-start">
         {cart.length > 0 && (
           cart.map((product, i) => (
             <CartItem key={product.id} product={product}></CartItem>
           ))
 
         ) }
+        </div>
       </div>
 
       <div className="bg-primary-grey-light-2 py-16 px-14 h-fit">
