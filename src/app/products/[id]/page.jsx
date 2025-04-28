@@ -4,12 +4,13 @@ import ColorSelector from "@/components/singleview/ColorSelector";
 import Gallery from "@/components/singleview/Gallery";
 import Quantity from "@/components/QuantityDropdown";
 import Wishlistbutton from "@/components/WishlistButton";
+import AddProduct from "@/components/singleview/AddProduct";
 
 export default async function SingleProduct({ params }) {
   const { id } = params;
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   const product = await res.json();
-
+  
   return (
     <div>
       <div className="grid grid-cols-2">
@@ -31,8 +32,9 @@ export default async function SingleProduct({ params }) {
           )}
           <ColorSelector></ColorSelector>
           <div>Size</div>
-          <Quantity></Quantity>
-          <Button variant="primary">Add to basket</Button>
+          {/* <Quantity></Quantity>
+          <Button variant="primary">Add to basket</Button> */}
+          <AddProduct product={product}></AddProduct>
           <Wishlistbutton></Wishlistbutton>
         </div>
       </div>
