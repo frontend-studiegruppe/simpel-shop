@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Quantity from "../QuantityDropdown";
-import exampleImg from "@/img/example.png"
+import exampleImg from "@/img/example.png";
 import { PiTrashLight } from "react-icons/pi";
 
 const CartItem = ({product}) => {
