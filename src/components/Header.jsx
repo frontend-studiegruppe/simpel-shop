@@ -113,18 +113,20 @@ const Header = () => {
           <ul>
             {searchResults.map((product) => (
               <li key={`${product.id}-${product.thumbnail}`} className="py-4 border-b flex gap-4">
-                {product.thumbnail && product.thumbnail !== "" ? (
-                  <Image src={product.thumbnail} alt={product.title} width={60} height={60} className="object-cover rounded-md" />
-                ) : (
-                  <div className="w-16 h-16 bg-gray-300 rounded-md flex items-center justify-center">
-                    <span className="text-white">No Image</span>
+                <Link href={`/products/${product.id}`} className="flex gap-4 w-full">
+                  {product.thumbnail && product.thumbnail !== "" ? (
+                    <Image src={product.thumbnail} alt={product.title} width={60} height={60} className="object-cover rounded-md" />
+                  ) : (
+                    <div className="w-16 h-16 bg-gray-300 rounded-md flex items-center justify-center">
+                      <span className="text-white">No Image</span>
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-md font-semibold">{product.title}</h3>
+                    <p className="text-sm text-gray-500">{product.description}</p>
+                    <p className="text-lg text-secondary-cherry-dark mt-1">{product.price},- kr DKK</p>
                   </div>
-                )}
-                <div>
-                  <h3 className="text-md font-semibold">{product.title}</h3>
-                  <p className="text-sm text-gray-500">{product.description}</p>
-                  <p className="text-lg text-secondary-cherry-dark mt-1">{product.price},- kr DKK</p>
-                </div>
+                </Link>
               </li>
             ))}
           </ul>
