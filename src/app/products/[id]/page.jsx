@@ -2,9 +2,9 @@ import Button from "@/components/Button";
 import ReviewCard from "@/components/singleview/Reviews";
 import ColorSelector from "@/components/singleview/ColorSelector";
 import Gallery from "@/components/singleview/Gallery";
-import Quantity from "@/components/QuantityDropdown";
 import Wishlistbutton from "@/components/WishlistButton";
 import AddProduct from "@/components/singleview/AddProduct";
+import SizeDropdown from "@/components/singleview/SizeDropdown";
 
 export default async function SingleProduct({ params }) {
   const { id } = params;
@@ -36,8 +36,8 @@ export default async function SingleProduct({ params }) {
             <p>{product.price} kr</p>
           )}
           <ColorSelector></ColorSelector>
-          <div>Size</div>
-          {/* <Quantity></Quantity>
+          <SizeDropdown></SizeDropdown>
+          {/*
           <Button variant="primary">Add to basket</Button> */}
           <AddProduct product={product}></AddProduct>
           <Wishlistbutton></Wishlistbutton>
