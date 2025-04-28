@@ -10,19 +10,24 @@ export default async function SingleProduct({ params }) {
   const { id } = params;
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   const product = await res.json();
-  
+
   return (
     <div>
-      <div className="grid grid-cols-2">
+      <div className="grid sm:grid-cols-2">
         <div>
           <Gallery images={product.images}></Gallery>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mx-5">
           <h1>{product.title}</h1>
           <p>{product.description}</p>
           {product.discountPercentage > 10 ? (
             <div>
-              <p className="text-red-500">{Math.round(product.price * (1 - product.discountPercentage / 100))} kr</p>
+              <p className="text-red-500">
+                {Math.round(
+                  product.price * (1 - product.discountPercentage / 100)
+                )}{" "}
+                kr
+              </p>
               <p className="italic">
                 Before: <span className="line-through">{product.price} kr</span>
               </p>
