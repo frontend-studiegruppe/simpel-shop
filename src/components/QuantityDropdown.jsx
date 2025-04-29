@@ -1,21 +1,31 @@
 "use client";
 import { useState } from "react";
 
-const Quantity = ({ size = "m" }) => {
-  const [quantity, setQuantity] = useState(1);
+const Quantity = ({ size = "m", quantity, setQuantity }) => {
+  // const [quantity, setQuantity] = useState(1);
 
   const sizeStyles = {
     s: "w-24 text-sm px-2 py-1",
     m: "w-40 text-base px-4 py-2",
   };
 
-  const handleIncrease = () => {
-    setQuantity((prev) => prev + 1);
-  };
+  // const handleIncrease = () => {
+  //   setQuantity((prev) => prev + 1);
+  // };
 
+  // const handleDecrease = () => {
+  //   if (quantity > 1) {
+  //     setQuantity((prev) => prev - 1);
+  //   }
+  // };
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1); // <-- ændret fra callback til konkret værdi
+  };
+  
   const handleDecrease = () => {
     if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
+      setQuantity(quantity - 1); // <-- ændret fra callback til konkret værdi
     }
   };
 
