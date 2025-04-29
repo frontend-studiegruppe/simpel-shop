@@ -5,23 +5,83 @@ const useCartStore = create(
   persist(
     (set, get) => ({
       cart: [],
-      //   addProduct: (product) => set({ cart: get().cart.concat(product) }),
-      addProduct: (product) =>
-        set((state) => {
-          const alreadyExists = state.cart.find((p) => p.id === product.id);
-          if (alreadyExists) {
-            return {
-              cart: state.cart.map((p) =>
-                p.id === product.id ? { ...p, qty: p.qty + 1 } : p
-              ),
-            };
-          }
-          return { cart: [...state.cart, { ...product, qty: 1 }] };
-        }),
+      subtotal: 0,
+      total: 0,
+      delivery: 39,
+      cartQuantity: 0,
+
+      addProduct: (product) => {
+        const alreadyExists = get().cart.find((p) => p.id === product.id);
+        let updatedCart;
+        if (alreadyExists) {
+          updatedCart = get().cart.map((p) =>
+            p.id === product.id ? { ...p, qty: p.qty + product.qty } : p
+          );
+        } else {
+          updatedCart = [...get().cart, { ...product }];
+        }
+
+        set({ cart: updatedCart });
+        get().calculateSubtotal();
+        get().calculateCartQuantity();
+      },
+
+      updateProductQuantity: (id, newQuantity) => {
+        if (newQuantity <= 0) {
+          set((state) => ({
+            cart: state.cart.filter((product) => product.id !== id),
+          }));
+        } else {
+          set((state) => ({
+            cart: state.cart.map((product) =>
+              product.id === id ? { ...product, qty: newQuantity } : product
+            ),
+          }));
+        }
+        get().calculateSubtotal();
+        get().calculateCartQuantity();
+      },
+
+      removeProduct: (id) => {
+        set((state) => ({
+          cart: state.cart.filter((product) => product.id !== id),
+        }));
+        get().calculateSubtotal();
+        get().calculateCartQuantity();
+      },
+
+      clearCart: () => {
+        set({ cart: [] });
+        get().calculateSubtotal();
+        get().calculateCartQuantity();
+      },
+
+      calculateSubtotal: () => {
+        let subtotal = get().cart.reduce((acc, product) => {
+          const discountedPrice = product.discountPercentage
+            ? product.price * (1 - product.discountPercentage / 100)
+            : product.price;
+          return acc + discountedPrice * product.qty;
+        }, 0);
+
+        const delivery = get().delivery;
+        let total = subtotal + delivery;
+
+        set({ subtotal: Math.ceil(subtotal), total: Math.ceil(total) });
+      },
+
+      calculateCartQuantity: () => {
+        const totalQty = get().cart.reduce(
+          (acc, product) => acc + product.qty,
+          0
+        );
+        set({ cartQuantity: totalQty });
+      },
     }),
     {
       name: "cart",
     }
   )
 );
+
 export default useCartStore;

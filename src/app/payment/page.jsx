@@ -8,20 +8,29 @@ import Delivery from "@/components/payment/Delivery";
 import { PiCreditCardLight } from "react-icons/pi";
 import useCartStore from "../store/cartStore";
 import PaymentMethods from "@/components/PaymentMethods";
+import TotalPrice from "@/components/payment/TotalPrice";
 
 const PaymentPage = () => {
-  const cart = useCartStore(state => state.cart)
+  // const cart = useCartStore(state => state.cart)
+  const { cart, clearCart, cartQuantity } = useCartStore();
   return (
     <div className="grid lg:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4 mb-16">
       <div className="bg-primary-grey-light-2 grid gap-6 px-24 py-16 h-fit">
         <h2 className="text-secondary-cherry-dark font-bold text-2xl">Cart</h2>
         <div className="flex flex-col gap-4 justify-start">
-        {cart.length > 0 && (
-          cart.map((product, i) => (
-            <CartItem key={product.id} product={product}></CartItem>
-          ))
-
-        ) }
+        {cart.length === 0 ? (
+        <div>
+          <p>Your cart is empty</p>
+          
+        </div>
+      ) :      <>
+      <p>Items in cart: {cartQuantity}</p>
+      {cart.map((product) => (
+        <CartItem key={product.id} product={product} />
+      ))}
+      <Button variant="primary" onClick={clearCart}>Clear Cart</Button>
+    </>
+    }
         </div>
       </div>
 
@@ -30,21 +39,7 @@ const PaymentPage = () => {
           Payment
         </h2>
         <div className="bg-primary-grey-light-3 p-6 flex flex-col gap-6">
-          <div className="flex flex-col gap-0.5">
-            <div className="flex justify-between">
-              <p>Subtotal</p>
-              <p>100kr</p>
-            </div>
-            <div className="flex justify-between mb-6">
-              <p>Delivery</p>
-              <p>39kr</p>
-            </div>
-            <div className="w-full border-b-2 border-primary-grey-dark"></div>
-            <div className="flex justify-between">
-              <p className="font-bold">Total</p>
-              <p>139kr</p>
-            </div>
-          </div>
+          <TotalPrice></TotalPrice>
           <div>
             <h3>Delivery Adress</h3>
             <Delivery> </Delivery>
