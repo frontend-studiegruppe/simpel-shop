@@ -32,7 +32,6 @@ const CartItem = ({product}) => {
                 <p>Size: {product.size}</p>
             </div>
             <div>
-                <p>Quantity</p>
             <Quantity
             size="s"
             quantity={product.qty}
