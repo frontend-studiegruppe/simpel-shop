@@ -18,6 +18,12 @@ const SearchBar = () => {
 
   const handleSearchChange = (e) => setSearchTerm(e.target.value);
 
+  const handleResultClick = () => {
+    setShowSearch(false);
+    setSearchResults([]);
+    setSearchTerm("");
+  };
+
   const handleKeyPress = async (e) => {
     if (e.key === "Enter" && searchTerm.trim() !== "") {
       setLoading(true);
@@ -48,12 +54,12 @@ const SearchBar = () => {
 
   return (
     <div className="relative" ref={searchRef}>
-      <IoIosSearch className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer z-20 absolute top-[-11px] left-[-14px]" onClick={toggleSearch} />
+      <IoIosSearch className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer z-20 absolute  top-[-14px] left-[-14px]" onClick={toggleSearch} />
       {showSearch && (
         <input
           type="text"
           placeholder="Search..."
-          className="absolute top-[-10px] left-0 transform -translate-x-44 sm:-translate-x-55 -translate-y-1 w-47 sm:w-60 p-1 sm:p-2 border border-gray-300 rounded-md shadow-md transition-all duration-300 z-10 bg-white text-sm focus:outline-none focus:border-secondary-cherry-light focus:ring-1 focus:ring-secondary-cherry-light"
+          className="absolute top-[-12px] left-0 transform -translate-x-44 sm:-translate-x-55 -translate-y-1 w-47 sm:w-60 p-1 sm:p-2 border border-gray-300 rounded-md shadow-md transition-all duration-300 z-10 bg-white text-sm focus:outline-none focus:border-secondary-cherry-light focus:ring-1 focus:ring-secondary-cherry-light"
           value={searchTerm}
           onChange={handleSearchChange}
           onKeyPress={handleKeyPress}
@@ -62,19 +68,23 @@ const SearchBar = () => {
       )}
 
       {loading && (
-        <div className="absolute top-full right-0 bg-white shadow-md w-[280px] sm:w-[400px] p-4 z-50 text-center">
+        <div className="absolute top-full mt-6 right-0 sm:right-[-80px] bg-white shadow-md w-[280px] sm:w-[350px] p-4 z-50 text-center rounded-lg border-2 border-secondary-cherry-light">
           <div className="spinner-border animate-spin inline-block w-6 h-6 border-4 rounded-full border-current border-t-transparent text-secondary-cherry-light"></div>
           <p className="mt-2 text-xs sm:text-sm text-gray-500">Loading...</p>
         </div>
       )}
 
       {searchResults.length > 0 && !loading && (
-        <div ref={resultsRef} className="absolute top-full right-5 bg-white shadow-md w-[280px] sm:w-[400px] p-4 z-50 max-h-[700px] overflow-y-auto">
+        <div
+          ref={resultsRef}
+          className="absolute top-full mt-6 right-0 sm:right-[-80px] rounded-lg bg-white shadow-md w-[280px] sm:w-[350px] p-4 z-50 sm:z-70 max-h-[700px] overflow-y-auto border-2
+          border-secondary-cherry-light"
+        >
           <h2 className="text-sm sm:text-lg font-bold mb-2">Search Results:</h2>
           <ul>
             {searchResults.map((product) => (
               <li key={`${product.id}-${product.thumbnail}`} className="py-4 border-b flex gap-4 text-sm sm:text-base">
-                <Link href={`/products/${product.id}`} className="flex gap-4 w-full">
+                <Link href={`/products/${product.id}`} className="flex gap-4 w-full" onClick={handleResultClick}>
                   {product.thumbnail && product.thumbnail !== "" ? (
                     <Image src={product.thumbnail} alt={product.title} width={60} height={60} className="object-cover rounded-md" />
                   ) : (
