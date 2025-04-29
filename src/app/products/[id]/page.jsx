@@ -22,7 +22,7 @@ export default async function SingleProduct({ params }) {
           <p>{product.description}</p>
           {product.discountPercentage > 10 ? (
             <div>
-              <p className="text-red-500">
+              <p className="text-red-500 font-bold text-xl">
                 {Math.round(
                   product.price * (1 - product.discountPercentage / 100)
                 )}{" "}
@@ -33,8 +33,9 @@ export default async function SingleProduct({ params }) {
               </p>
             </div>
           ) : (
-            <p>{product.price} kr</p>
+            <p className="font-bold text-xl">{product.price} kr</p>
           )}
+
           <ColorSelector></ColorSelector>
           <SizeDropdown></SizeDropdown>
           {/*
@@ -45,7 +46,7 @@ export default async function SingleProduct({ params }) {
       </div>
 
       <div className="py-10">
-        <h2>Reviews</h2>
+        <h2 className="ml-5">Reviews</h2>
         <div className="flex overflow-scroll pt-2">
           <div className="flex gap-5 shrink-0">
             {product.reviews.map((review, index) => (

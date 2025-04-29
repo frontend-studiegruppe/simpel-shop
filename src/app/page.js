@@ -9,7 +9,7 @@ export default function Home() {
       <VideoBackground />
       <div className="h-screen flex flex-col justify-around items-center gap-10">
         <div className="py-30 ">
-          <h1 className="text-center text-secondary-cherry-dark text-8xl font-bold ">
+          <h1 className="text-center text-secondary-cherry-dark text-7xl sm:text-8xl font-bold ">
             Studio Rouge
           </h1>
           <div className="flex justify-center mt-10">
