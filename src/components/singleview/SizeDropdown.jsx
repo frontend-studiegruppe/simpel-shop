@@ -2,8 +2,8 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const SizeDropdown = ({ size = "m" }) => {
-  const [selected, setSelected] = useState("M");
+const SizeDropdown = ({ size = "m", selectedSize, setSelectedSize }) => {
+  // const [selected, setSelected] = useState("M");
   const [isOpen, setIsOpen] = useState(false);
   const sizes = ["S", "M", "L", "XL", "XXL"];
 
@@ -17,7 +17,7 @@ const SizeDropdown = ({ size = "m" }) => {
       <label className="text-sm mb-1 block">Choose size:</label>
 
       <div className={`bg-gray-300 flex justify-between items-center cursor-pointer ${sizeStyles[size]}`} onClick={() => setIsOpen(!isOpen)}>
-        <span>{selected}</span>
+        <span>{selectedSize}</span>
         <IoIosArrowDown />
       </div>
 
@@ -28,7 +28,7 @@ const SizeDropdown = ({ size = "m" }) => {
               key={sizeOption}
               className="px-4 py-2 hover:bg-gray-400 cursor-pointer"
               onClick={() => {
-                setSelected(sizeOption);
+                setSelectedSize(sizeOption);
                 setIsOpen(false);
               }}
             >

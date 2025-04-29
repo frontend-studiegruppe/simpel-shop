@@ -37,7 +37,7 @@ export default async function SingleProduct({ params }) {
           )}
 
           <ColorSelector></ColorSelector>
-          <SizeDropdown></SizeDropdown>
+          
           {/*
           <Button variant="primary">Add to basket</Button> */}
           <AddProduct product={product}></AddProduct>
