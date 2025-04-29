@@ -3,9 +3,9 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 const SizeDropdown = ({ size = "m" }) => {
-  const [selected, setSelected] = useState("m");
+  const [selected, setSelected] = useState("M");
   const [isOpen, setIsOpen] = useState(false);
-  const sizes = ["s", "m", "l", "xl", "xxl"];
+  const sizes = ["S", "M", "L", "XL", "XXL"];
 
   const sizeStyles = {
     s: "w-24 text-sm px-2 py-1",
