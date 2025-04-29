@@ -29,10 +29,9 @@ const CartItem = ({product}) => {
             <div>
                 <p className="font-bold">{product.title}</p>
                 <p>Color: Black</p>
-                <p>Size: M</p>
+                <p>Size: {product.size}</p>
             </div>
             <div>
-                <p>Quantity</p>
             <Quantity
             size="s"
             quantity={product.qty}
