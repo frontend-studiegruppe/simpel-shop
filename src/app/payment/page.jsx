@@ -27,7 +27,7 @@ const PaymentPage = () => {
                 <CartItem key={product.id} product={product} />
               ))}
               <p>Items in cart: {cartQuantity}</p>
-              <Button variant="primary" onClick={clearCart}>
+              <Button variant="primary_small" onClick={clearCart}>
                 Clear Cart
               </Button>
             </>
