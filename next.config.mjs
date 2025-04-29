@@ -1,6 +1,10 @@
-// next.config.mjs
 export default {
   images: {
-    domains: ["cdn.dummyjson.com"], // Tillad billeder fra denne domæne
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.dummyjson.com",
+      },
+    ],
   },
 };
