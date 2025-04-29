@@ -1,4 +1,4 @@
-"use client"
+"use client";
 //Katinka: OBS mangler icon på button
 
 import Button from "@/components/Button";
@@ -7,7 +7,6 @@ import Payment from "@/components/payment/Payment";
 import Delivery from "@/components/payment/Delivery";
 import { PiCreditCardLight } from "react-icons/pi";
 import useCartStore from "../store/cartStore";
-import PaymentMethods from "@/components/PaymentMethods";
 import TotalPrice from "@/components/payment/TotalPrice";
 
 const PaymentPage = () => {
@@ -48,7 +47,7 @@ const PaymentPage = () => {
             <h3>Payment</h3>
             <Payment></Payment>
           </div>
-          <PaymentMethods></PaymentMethods>
+
           <div className="flex justify-center">
             <Button variant="primary">
               Buy now <PiCreditCardLight size={34} className="ml-4" />{" "}

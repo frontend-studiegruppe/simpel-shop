@@ -1,3 +1,5 @@
+import PaymentMethods from "../PaymentMethods";
+
 const Payment = () => {
   return (
     <form className="grid gap-4 max-w-md">
@@ -63,6 +65,9 @@ const Payment = () => {
             required
           />
         </div>
+      </div>
+      <div>
+        <PaymentMethods></PaymentMethods>
       </div>
     </form>
   );
