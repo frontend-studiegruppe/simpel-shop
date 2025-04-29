@@ -20,9 +20,17 @@ const ProductList = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const categoryValues = categories.map((c) => c.value).filter((v) => v !== "all");
+      const categoryValues = categories
+        .map((c) => c.value)
+        .filter((v) => v !== "all");
 
-      const responses = await Promise.all(categoryValues.map((cat) => fetch(`https://dummyjson.com/products/category/${cat}`).then((res) => res.json())));
+      const responses = await Promise.all(
+        categoryValues.map((cat) =>
+          fetch(`https://dummyjson.com/products/category/${cat}`).then((res) =>
+            res.json()
+          )
+        )
+      );
 
       const all = responses.flatMap((res) => res.products);
       setAllProducts(all);
@@ -37,16 +45,22 @@ const ProductList = () => {
     if (activeCategory === "all") {
       setFilteredProducts(allProducts);
     } else {
-      setFilteredProducts(allProducts.filter((p) => p.category === activeCategory));
+      setFilteredProducts(
+        allProducts.filter((p) => p.category === activeCategory)
+      );
     }
   }, [activeCategory, allProducts]);
 
   return (
-    <div className="p-6">
+    <div className="sm:p-6">
       {/* CATEGORY BUTTONS */}
       <div className="flex justify-center gap-3 mb-6 flex-wrap">
         {categories.map((cat) => (
-          <Button key={cat.value} variant={activeCategory === cat.value ? "active" : "secondary"} onClick={() => setActiveCategory(cat.value)}>
+          <Button
+            key={cat.value}
+            variant={activeCategory === cat.value ? "active" : "secondary"}
+            onClick={() => setActiveCategory(cat.value)}
+          >
             {cat.name}
           </Button>
         ))}
