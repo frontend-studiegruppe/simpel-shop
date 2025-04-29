@@ -1,10 +1,11 @@
 "use client";
 
-import { PiHandbagLight } from "react-icons/pi";
+
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import CartIcon from "./CartIconHeader";
 
 const Header = () => {
   const pathname = usePathname();
@@ -25,9 +26,7 @@ const Header = () => {
 
         <div className="flex gap-4 sm:gap-10 items-center relative">
           <SearchBar />
-          <Link href="/payment">
-            <PiHandbagLight className="w-6 h-6 sm:w-8 sm:h-8 z-0" />
-          </Link>
+          <CartIcon />
         </div>
       </nav>
     </header>
