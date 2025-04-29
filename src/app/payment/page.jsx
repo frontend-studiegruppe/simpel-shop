@@ -24,10 +24,10 @@ const PaymentPage = () => {
           
         </div>
       ) :      <>
-      <p>Items in cart: {cartQuantity}</p>
       {cart.map((product) => (
         <CartItem key={product.id} product={product} />
       ))}
+            <p>Items in cart: {cartQuantity}</p>
       <Button variant="primary" onClick={clearCart}>Clear Cart</Button>
     </>
     }
