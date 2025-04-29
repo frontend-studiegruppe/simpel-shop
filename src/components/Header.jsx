@@ -9,12 +9,13 @@ import CartIcon from "./CartIconHeader";
 const Header = () => {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isProducts = pathname === "/products";
 
   return (
     <header
-      className={`w-full sticky top-0 z-100 ${
+      className={`w-full  ${
         isHome ? "absolute top-0 left-0 bg-transparent" : "relative bg-white"
-      }`}
+      }, ${isProducts ? "sticky top-0 z-100 bg-white" : ""}`}
     >
       <nav className="flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-[rgba(255,255,255,0.5)] transition">
         <Link href="/" className="flex items-center gap-4 sm:gap-6">
