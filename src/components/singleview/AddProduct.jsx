@@ -17,7 +17,7 @@ const AddProduct = ({product}) => {
         <>
         <Quantity quantity={quantity} setQuantity={setQuantity}></Quantity>
         {/* <Button onClick={() => addProduct(product)}>Add to cart</Button> */}
-        <Button onClick={handleAddProduct}>Add to cart</Button>
+        <Button variant="primary" onClick={handleAddProduct}>Add to cart</Button>
         </>
      );
 }
