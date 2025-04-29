@@ -4,6 +4,8 @@ const Button = ({ children, variant, onClick }) => {
   const variants = {
     primary:
       "py-4 px-8 bg-[var(--color-secondary-cherry-light)] text-white text-xl border-2 border-secondary-cherry-light border- hover:bg-white hover:text-[var(--color-secondary-cherry-light)] hover:border-2 hover:border-[var(--color-secondary-cherry-light)]",
+    primary_small: 
+    "py-2 px-4 bg-[var(--color-secondary-cherry-light)] text-white text-md border-2 border-secondary-cherry-light border- hover:bg-white hover:text-[var(--color-secondary-cherry-light)] hover:border-2 hover:border-[var(--color-secondary-cherry-light)]",
     secondary:
       "px-10 text-m bg-white text-[var(--color-secondary-cherry-light)] border-2 border-[var(--color-secondary-cherry-light)] hover:bg-[var(--color-secondary-cherry-light)] hover:text-white",
     active:
