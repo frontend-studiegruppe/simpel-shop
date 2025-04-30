@@ -5,19 +5,20 @@ import { PiTrashLight } from "react-icons/pi";
 import useCartStore from "@/app/store/cartStore";
 
 const CartItem = ({ product }) => {
-  const { updateProductQuantity, removeProduct, clearCart } = useCartStore();
+  const { updateProductQuantity, removeProduct } = useCartStore();
   const handleQuantityChange = (newQty) => {
     // Opdaterer produktets quantity i zustand
     updateProductQuantity(product.id, newQty);
   };
 
-  // Beregn prisen med rabat, hvis der er en rabat
-  const discountedPrice = product.discountPercentage
-    ? product.price * (1 - product.discountPercentage / 100)
-    : product.price;
+//   const discountedPrice = product.discountPercentage > 10
+//     ? product.price * (1 - product.discountPercentage / 100)
+//     : product.price;
 
-  // Rund prisen op
-  const finalPrice = Math.ceil(discountedPrice * product.qty);
+//   const roundedPrice = Math.ceil(discountedPrice);
+//   const finalPrice = roundedPrice * product.qty;
+
+const finalPrice = product.discountedPrice * product.qty;
 
   return (
     <div className="bg-primary-grey-light-3 flex flex-col sm:flex-row p-8 justify-between gap-6 h-fit">

@@ -11,14 +11,28 @@ const useCartStore = create(
       cartQuantity: 0,
 
       addProduct: (product) => {
+        const discountedPrice =
+          product.discountPercentage > 10
+            ? Math.round(product.price * (1 - product.discountPercentage / 100))
+            : product.price;
+
         const alreadyExists = get().cart.find((p) => p.id === product.id);
         let updatedCart;
         if (alreadyExists) {
           updatedCart = get().cart.map((p) =>
-            p.id === product.id ? { ...p, qty: p.qty + product.qty } : p
+            p.id === product.id
+              ? { ...p, qty: p.qty + (product.qty || 1), discountedPrice } // Gem discountedPrice
+              : p
           );
         } else {
-          updatedCart = [...get().cart, { ...product }];
+          updatedCart = [
+            ...get().cart,
+            {
+              ...product,
+              qty: product.qty || 1,
+              discountedPrice, // Gem discountedPrice
+            },
+          ];
         }
 
         set({ cart: updatedCart });

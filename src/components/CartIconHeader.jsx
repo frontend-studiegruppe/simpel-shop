@@ -43,7 +43,7 @@ const CartIcon = () => {
               return (
                 <div
                   key={product.id}
-                  className="flex items-center justify-between border-b pb-2 text-primary-black"
+                  className="flex items-center justify-between pb-2 text-primary-black bg-primary-grey-light-3"
                 >
                   <Image
                     src={product.thumbnail}
