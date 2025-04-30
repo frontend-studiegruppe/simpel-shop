@@ -30,7 +30,7 @@ const CartIcon = () => {
       </Link>
 
       {isHovered && cart.length > 0 && (
-        <div className=" top-full mt-2 absolute right-0 w-72 sm:w-96 bg-white shadow-lg p-4 z-[999]">
+        <div className=" top-full absolute right-0 w-72 sm:w-96 bg-white shadow-lg p-4 z-[999]">
           <h3 className="text-sm font-semibold mb-2">Your Cart</h3>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {cart.map((product) => {
