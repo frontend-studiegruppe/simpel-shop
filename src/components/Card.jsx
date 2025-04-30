@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import useCartStore from "@/app/store/cartStore";
 
 const Card = ({ product }) => {
+  const { addProduct } = useCartStore();
   // Tjek, at product har nødvendige felter
   if (!product || !product.title || !product.thumbnail) {
     return (
@@ -29,7 +31,8 @@ const Card = ({ product }) => {
             />
           </div>
           <div className="w-full flex justify-center absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
-            <Button variant="card_hover_btn">Add to Basket</Button>
+            <Button   onClick={(e) => {e.preventDefault(); addProduct({ ...product, qty: 1, size: product.size || "M" }); }}
+            variant="card_hover_btn">Add to Basket</Button>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row justify-between py-2 font-light text-sm sm:text-md gap-1">
