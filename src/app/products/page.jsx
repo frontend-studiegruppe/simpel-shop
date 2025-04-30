@@ -54,7 +54,7 @@ const ProductList = () => {
   return (
     <div className="sm:p-6">
       {/* CATEGORY BUTTONS */}
-      <div className="flex justify-center gap-3 mb-6 flex-wrap sticky top-20 sm:top-30 sm:py-2 z-100 bg-white py-2 ">
+      <div className="flex justify-center gap-3 mb-6 flex-wrap sticky top-20 sm:top-36 sm:py-2 z-[150] bg-white py-2 ">
         {categories.map((cat) => (
           <Button
             key={cat.value}

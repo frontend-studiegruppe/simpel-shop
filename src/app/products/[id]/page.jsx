@@ -37,7 +37,7 @@ export default async function SingleProduct({ params }) {
           )}
 
           <ColorSelector></ColorSelector>
-          
+
           {/*
           <Button variant="primary">Add to basket</Button> */}
           <AddProduct product={product}></AddProduct>
@@ -45,8 +45,8 @@ export default async function SingleProduct({ params }) {
         </div>
       </div>
 
-      <div className="py-10">
-        <h2 className="ml-5">Reviews</h2>
+      <div className="py-10 flex flex-col">
+        <h2 className="ml-5 sm:ml-0 mb-4">Reviews</h2>
         <div className="flex overflow-scroll pt-2">
           <div className="flex gap-5 shrink-0">
             {product.reviews.map((review, index) => (

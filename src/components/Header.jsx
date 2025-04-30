@@ -12,12 +12,17 @@ const Header = () => {
   const isProducts = pathname === "/products";
 
   return (
+    // relative z-[200] overflow-visible
     <header
       className={`w-full  ${
         isHome ? "absolute top-0 left-0 bg-transparent" : "relative bg-white"
-      }, ${isProducts ? "sticky top-0 z-100 bg-white" : ""}`}
+      }, ${
+        isProducts
+          ? "sticky top-0 z-[200] bg-white"
+          : "relative z-[200] bg-white"
+      }`}
     >
-      <nav className="flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-[rgba(255,255,255,0.5)] transition">
+      <nav className="relative overflow-visible flex justify-between items-center px-5 py-4 sm:px-20 sm:py-10 text-(--color-secondary-cherry-dark) hover:bg-[rgba(255,255,255,0.5)] transition">
         <Link href="/" className="flex items-center gap-4 sm:gap-6">
           <Image
             src="/img/logo.svg"
@@ -44,7 +49,7 @@ const Header = () => {
           <div className="hover:scale-105">
             <SearchBar />
           </div>
-          <div className=" hover:scale-105">
+          <div className="relative z-[100] hover:scale-105">
             <CartIcon />
           </div>
         </div>

@@ -13,8 +13,9 @@ const CartIcon = () => {
 
   return (
     <div
-      className="relative z-50"
-      onMouseEnter={() => setIsHovered(true)}  // Trigger hover when mouse enters either icon or dropdown
+      className="relative"
+      style={{ zIndex: 999 }}
+      onMouseEnter={() => setIsHovered(true)} // Trigger hover when mouse enters either icon or dropdown
       onMouseLeave={() => setIsHovered(false)} // Trigger leave when mouse leaves both icon and dropdown
     >
       <Link href="/payment">
@@ -29,16 +30,21 @@ const CartIcon = () => {
       </Link>
 
       {isHovered && cart.length > 0 && (
-        <div className="absolute right-0 w-72 sm:w-96 bg-white shadow-lg p-4">
+        <div className=" top-full mt-2 absolute right-0 w-72 sm:w-96 bg-white shadow-lg p-4 z-[999]">
           <h3 className="text-sm font-semibold mb-2">Your Cart</h3>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {cart.map((product) => {
               const discountedPrice = product.discountPercentage
-                ? Math.round(product.price * (1 - product.discountPercentage / 100))
+                ? Math.round(
+                    product.price * (1 - product.discountPercentage / 100)
+                  )
                 : product.price;
 
               return (
-                <div key={product.id} className="flex items-center justify-between border-b pb-2 text-primary-black">
+                <div
+                  key={product.id}
+                  className="flex items-center justify-between border-b pb-2 text-primary-black"
+                >
                   <Image
                     src={product.thumbnail}
                     alt={product.title}
@@ -47,14 +53,18 @@ const CartIcon = () => {
                     className="object-cover rounded"
                   />
                   <div className="flex-1 px-2 text-sm">
-                    <p className="font-semibold line-clamp-1">{product.title}</p>
-                    <p>{product.qty} x {discountedPrice} kr</p>
+                    <p className="font-semibold line-clamp-1">
+                      {product.title}
+                    </p>
+                    <p>
+                      {product.qty} x {discountedPrice} kr
+                    </p>
                   </div>
-                <PiTrashLight
-                  size={28}
-                  className="text-secondary-cherry-dark hover:text-secondary-cherry-light"
-                  onClick={() => removeProduct(product.id)}
-                />
+                  <PiTrashLight
+                    size={28}
+                    className="text-secondary-cherry-dark hover:text-secondary-cherry-light"
+                    onClick={() => removeProduct(product.id)}
+                  />
                 </div>
               );
             })}
@@ -63,10 +73,7 @@ const CartIcon = () => {
             <span>Subtotal:</span>
             <span>{subtotal} kr</span>
           </div>
-          <Link
-            href="/payment"
-            className="flex justify-center mt-4"
-          >
+          <Link href="/payment" className="flex justify-center mt-4">
             <Button variant="primary_small">Go to checkout</Button>
           </Link>
         </div>
