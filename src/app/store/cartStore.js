@@ -20,12 +20,18 @@ const useCartStore = create(
         let updatedCart;
         if (alreadyExists) {
           updatedCart = get().cart.map((p) =>
-            p.id === product.id ? { ...p, qty: p.qty + (product.qty || 1) } : p
+            p.id === product.id
+              ? { ...p, qty: p.qty + (product.qty || 1), discountedPrice } // Gem discountedPrice
+              : p
           );
         } else {
           updatedCart = [
             ...get().cart,
-            { ...product, qty: product.qty || 1, price: discountedPrice },
+            {
+              ...product,
+              qty: product.qty || 1,
+              discountedPrice, // Gem discountedPrice
+            },
           ];
         }
 

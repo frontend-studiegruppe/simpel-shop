@@ -11,12 +11,14 @@ const CartItem = ({ product }) => {
     updateProductQuantity(product.id, newQty);
   };
 
-  const discountedPrice = product.discountPercentage > 10
-    ? product.price * (1 - product.discountPercentage / 100)
-    : product.price;
+//   const discountedPrice = product.discountPercentage > 10
+//     ? product.price * (1 - product.discountPercentage / 100)
+//     : product.price;
 
-  const roundedPrice = Math.ceil(discountedPrice);
-  const finalPrice = roundedPrice * product.qty;
+//   const roundedPrice = Math.ceil(discountedPrice);
+//   const finalPrice = roundedPrice * product.qty;
+
+const finalPrice = product.discountedPrice * product.qty;
 
   return (
     <div className="bg-primary-grey-light-3 flex flex-col sm:flex-row p-8 justify-between gap-6 h-fit">
