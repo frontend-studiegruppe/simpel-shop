@@ -11,6 +11,11 @@ const useCartStore = create(
       cartQuantity: 0,
 
       addProduct: (product) => {
+        const discountedPrice =
+          product.discountPercentage > 10
+            ? Math.round(product.price * (1 - product.discountPercentage / 100))
+            : product.price;
+
         const alreadyExists = get().cart.find((p) => p.id === product.id);
         let updatedCart;
         if (alreadyExists) {
@@ -18,7 +23,10 @@ const useCartStore = create(
             p.id === product.id ? { ...p, qty: p.qty + (product.qty || 1) } : p
           );
         } else {
-          updatedCart = [...get().cart, { ...product, qty: product.qty || 1 }];
+          updatedCart = [
+            ...get().cart,
+            { ...product, qty: product.qty || 1, price: discountedPrice },
+          ];
         }
 
         set({ cart: updatedCart });
